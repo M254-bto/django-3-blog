@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from taggit.models import Tag
 from blog import models
 from django.db.models import Count
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 
 def post_list(request,tag_slug = None ):
@@ -84,6 +85,10 @@ def post_share(request, post_id):
     return render(request, 'blog/post/share.html', context= {"form": form,
                                                               "post": post,
                                                               "sent": sent})
+
+
+
+
 
 
 
